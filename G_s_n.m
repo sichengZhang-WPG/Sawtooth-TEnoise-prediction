@@ -1,21 +1,10 @@
 % G_s(n)
 function result=G_s_n(n,y_1,y_2,h,M,omega)
 
-% n=1;
-% y_1 = 1;
-% y_2 = 0;
-% y_3 = 0;
-% lambda = 1;
-% c0=1;
-% omega = 1;
-% h = lambda./3;
-% c = h./0.05;% chord
-% h = lambda./2;
-% M = 0.1;
+
 beta = sqrt(1-M.^2);
 U_c = M.*0.7;
 
-% N = 10;
 
 k = omega;
 k_1 = (-omega./U_c - k.*M./beta.^2).*beta;

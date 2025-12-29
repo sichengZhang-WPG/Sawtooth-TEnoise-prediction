@@ -41,6 +41,4 @@ function result = Q01_s(n,j,k_1,k_2,h,c,M,omega,x_1,x_2,x_3)
         EE(2*(A_0(ind_B0)+C_0(ind_B0))*h).*exp(-1i*B_0(ind_B0)/4);
     
     result = sum(result_tmp,1);
-    % disp(result_tmp);
-    % disp(sum(result_tmp,"all"))
 end

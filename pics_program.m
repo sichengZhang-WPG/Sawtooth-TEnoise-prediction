@@ -28,10 +28,9 @@ freq = omega/2/pi;
 fig_phi=figure(2);
 fig_phi.Position = [720 50 720 720];
 pic_phi=tiledlayout("flow",'TileSpacing','compact','Padding','compact');
-disp('phi');
+disp('Phi')
+disp('Figure 4...');
 for ii = 1:6
-    display(['ii = ' num2str(ii)]);
-
     U0 = M0*c0;
     Ustar = 0.03*U0;
     c = 1;
@@ -65,6 +64,7 @@ fontname(pic_phi,"Times New Roman");
 point_num = 121; % number of observer point
 kc_list = [1 10 20 50]; % frequencies required
 
+disp('Figure 5...');
 
 % aerofoil parameters
 lambda = 0.04;
@@ -85,7 +85,6 @@ fig.Position = [0 50 1200 360];
 
 
 for ii = 1:2
-    tic
     kc = kc_list(ii);
     freq2= kc*c0/2/pi;
     freq = zeros(point_num,1)+freq2;
@@ -125,6 +124,8 @@ x_3_seq = r*sin(theta);
 %% Figure 6
 m = 30;
 c=1;
+disp('directivity calculation');
+disp('Figure 6...');
 
 % aerofoil parameters
 r_lam_h = 0.4;
@@ -138,10 +139,8 @@ lambda = r_lam_h*h;
 kc = [1 3 5 10 20 50];
 freq = kc/c*c0/2/pi;
 
-disp('directivity calculation');
 M = 0.1; %0.1,0.4
 for jj = 1:point_num
-    display(['point_num = ' num2str(jj)]);
     obsLocation = [x_1_seq(jj),0,x_3_seq(jj)];
     PhiBaseline_BG = PredBG_s(lambda, 0.0000001*c, c, M, obsLocation, freq,c0,100,m,1);
     Phi_BG = PredBG_s(lambda, epsilon, c, M, obsLocation, freq,c0,100,m,1);
@@ -176,15 +175,14 @@ freq2= kc*c0/2/pi;
 freq = zeros(point_num+1,1)+freq2;
 r_lam_h = [8 4 2 1 0.4 0.2];
 r_h_c = [0.025 0.025 0.05 0.005 0.05 0.05];
+disp('Figure 7...');
 for ii = 1:6
     lambda = r_lam_h(ii)*r_h_c(ii);
     h = r_h_c(ii);
     for jj = 1:point_num
-        display(['point_num = ' num2str(jj)]);
         obsLocation = [x_1_seq(jj),0,x_3_seq(jj)];
         specSawSC(jj,:) = PredBG_s(lambda, h*2, 1, 0.1, obsLocation, freq2,c0,n,m,1);
         specBaseSC(jj,:) = PredBG_s(0.04, 1e-6, 1, 0.1, obsLocation, freq2,c0,n,m,1);
-
     end
 
     nexttile;

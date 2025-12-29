@@ -24,7 +24,7 @@
 function PHI_seq = PredBG_s(lambda, epsilon, c, M0, obsLocation, freq,c0,n,m,sign_m)
 
 h = epsilon/2/lambda;
-c = c/lambda;% chord
+c = c/lambda;
 M = M0;
 beta = sqrt(1-M^2);
 U_c = M*0.7;

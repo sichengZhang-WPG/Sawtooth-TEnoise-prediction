@@ -39,6 +39,4 @@ function result = Qn_s(n,j,k_1,k_2,h,c,M,omega,x_1,x_2,x_3)
 
 
     result = sum(result_tmp,1);
-    % disp(result_tmp);
-    % disp(sum(result_tmp,"all"))
 end

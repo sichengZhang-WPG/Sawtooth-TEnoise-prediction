@@ -4,8 +4,5 @@ S_0 = sqrt(x_1.^2+beta^2*(x_2.^2+x_3.^2));
 k=omega;
 
 result_A=k_1/beta+k*x_1/beta^2./S_0+(-1).^(j+1).*n*pi/(2*h);
-% if n==0
-%     result_A = k_1/beta-k*(-x_1)/beta^2/S_0;
-% end
 
 end

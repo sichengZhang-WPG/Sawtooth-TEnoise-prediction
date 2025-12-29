@@ -29,6 +29,4 @@ function result = Q04_s(n,j,k_1,k_2,h,c,M,omega,x_1,x_2,x_3)
     result_tmp(11,:,:,:,:) = D_04./A_0./B_0.*exp(-1i.*A_0.*h).*exp(-1i.*B_0./4).*(exp(-1i.*B_0./2)-exp(1i.*B_0./2)).*(A_0./2./mysqrt(C_0)./mysqrt((A_0+C_0)).^3.*EE(2.*(A_0+C_0).*h)+mysqrt(C_0)./mysqrt((A_0+C_0)).*2.*h.*exp(1i.*2.*(A_0+C_0).*h)./mysqrt(2.*pi.*2.*(A_0+C_0).*h));
     result_tmp(11,ind_B0) = -1i.*D_04(ind_B0)./A_0(ind_B0).*exp(-1i.*A_0(ind_B0).*h).*(A_0(ind_B0)./2./mysqrt(C_0(ind_B0))./mysqrt((A_0(ind_B0)+C_0(ind_B0))).^3.*EE(2.*(A_0(ind_B0)+C_0(ind_B0)).*h)+mysqrt(C_0(ind_B0))./mysqrt((A_0(ind_B0)+C_0(ind_B0))).*2.*h.*exp(1i.*2.*(A_0(ind_B0)+C_0(ind_B0)).*h)./mysqrt(2.*pi.*2.*(A_0(ind_B0)+C_0(ind_B0)).*h));
     result = sum(result_tmp,1);
-    % disp(result_tmp);
-    % disp(sum(result_tmp,"all"))
 end

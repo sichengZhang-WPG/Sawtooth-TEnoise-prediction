@@ -37,6 +37,4 @@ result_tmp(6,ind_B0) = -1i.*D_03(ind_B0)./A_0(ind_B0).* mysqrt(C_0(ind_B0))...
     ./mysqrt((A_0(ind_B0)+C_0(ind_B0))).*exp(-1i*A_0(ind_B0)*h)...
     .* EE(2*(A_0(ind_B0)+C_0(ind_B0))*h).*exp(-1i*B_0(ind_B0)/4);
 result = sum(result_tmp,1);
-% disp(result_tmp);
-% disp(sum(result_tmp,"all"))
 end

@@ -15,12 +15,10 @@ function result = Qin2_s(n,j,k_1,k_2,h,c,M,omega,x_1,x_2,x_3)
     ind_B0 = find(B_0==0);
     coef1(ind_B0) = -D_0(ind_B0).*exp(-1i.*B_0(ind_B0)./4).*1i./A_0(ind_B0);
     
-    % result_tmp(1,:,:,:,:) = coef1.*exp(1i.*A_0.*c);
     result_tmp(2,:,:,:,:) = -D_0.*exp(-1i.*B_0./4)./A_0.*exp(-1i.*A_0.*h).*(1./(B_0+4.*A_0.*h)-1./(B_0-4.*A_0.*h));
     result_tmp(3,:,:,:,:) = D_0.*exp(-1i.*B_0./4)./A_0.*exp(1i.*A_0.*h).*(exp(1i.*B_0./2)./(B_0+4.*A_0.*h)-exp(-1i.*B_0./2)./(B_0-4.*A_0.*h));
     result = sum(result_tmp,1);
-    % disp(result_tmp);
-    % disp(sum(result_tmp,"all"))
+
 end
 
 
