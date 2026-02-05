@@ -1,0 +1,48 @@
+% The example code. 
+clear;
+close all;
+%%
+% Model coefficents
+c0 = 343; % sound speed
+n  = 100; 
+m  = 30;
+
+% Line color
+C = [248 118 109;
+    190	190	190]/256;
+
+M0 = 0.1;
+U0 = M0*c0;
+Ustar = 0.03*U0;
+
+% aerofoil parameters
+r_lam_h = 8; % ratio of lambda to h
+r_h_c = 0.025; % ratio of h to c
+kc = 10.^linspace(-1,2,100); % frequencies required
+omega = kc*c0;
+freq = omega/2/pi;
+
+fig_phi=figure(2);
+pic_phi=tiledlayout("flow",'TileSpacing','compact','Padding','compact');
+disp('Phi')
+U0 = M0*c0;
+Ustar = 0.03*U0;
+c = 1;
+obs_location = [0, 0, c];
+h = c*r_h_c;
+lambda = r_lam_h*h;
+
+spec_saw = PredBG(lambda, h*2, 1, M0, obs_location, freq,c0,n,m,1);
+spec_base = PredBG(0.04, 1e-6, 1, M0, obs_location, freq,c0,n,m,1);
+
+nexttile(pic_phi);
+semilogx(kc,10*log10(spec_base/4e-10), 'Color',C(1,:),'LineStyle','-','LineWidth',2); hold on;
+semilogx(kc,10*log10(spec_saw/4e-10),'Color',C(2,:),'LineStyle','-','LineWidth',2); hold on;
+ylim([-60 30]);
+yticks([-60 -30 0]);
+xlim([0.1 100]);
+legend('Baseline','Serrated','Location','southeast');
+xlabel('$kc$','Interpreter','latex','FontName','Time New Roman');
+ylabel('PSD (dB ref 4\times 10^{-10}Pa^2/Hz)');
+fontsize(pic_phi,22,"pixels");
+fontname(pic_phi,"Times New Roman");
