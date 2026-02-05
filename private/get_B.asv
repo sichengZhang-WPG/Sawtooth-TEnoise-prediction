@@ -6,6 +6,6 @@ k_bar = k/beta;
 chi_n = 2*n*pi - k_2;
 kappa_n = mysqrt(k_bar.^2-chi_n.^2);
 
-result_B = -chi_n + k * (x_2+0.000001) / S_0;
+result_B = -chi_n + k * x_2 / S_0;
 result_B(result_B==0) = 0.000001;
 end

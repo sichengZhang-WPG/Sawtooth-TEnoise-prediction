@@ -1,4 +1,4 @@
-function result = Q04(n,j,k_1,k_2,h,c,M,omega,x_1,x_2,x_3)
+function result = g_04(n,j,k_1,k_2,h,c,M,omega,x_1,x_2,x_3)
     A_0 = get_A(n,j,k_1,k_2,h,M,omega,x_1,x_2,x_3);
     B_0 = get_B(n,j,k_1,k_2,h,M,omega,x_1,x_2,x_3);
     C_0 = get_C(n,1,k_1,k_2,h,M,omega,x_1,x_2,x_3);

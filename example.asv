@@ -3,41 +3,41 @@ clear;
 close all;
 %%
 % Model coefficents
-c0 = 343; % sound speed
-n  = 100; 
-m  = 30;
+c0   = 343;
+rho0 = 1.25;
+n    = 100;
+m    = 30;
+M0   = 0.1;
 
-% Line color
-C = [248 118 109;
-    190	190	190]/256;
-
-M0 = 0.1;
-U0 = M0*c0;
-Ustar = 0.03*U0;
 
 % aerofoil parameters
-r_lam_h = 8; % ratio of lambda to h
-r_h_c = 0.025; % ratio of h to c
-kc = 10.^linspace(-1,2,100); % frequencies required
-omega = kc*c0;
-freq = omega/2/pi;
+c            = 1;                        % the chord length
+r_lam_h      = 8;                        % ratio of lambda to h
+r_h_c        = 0.025;                    % ratio of h to c
+kc           = 10.^linspace(-1,2,100);   % dimensionless frequencies required
+omega        = kc*c0/c;                  % dimensional angular frequencies
+freq         = omega/2/pi;               % dimensional frequencies
 
-fig_phi=figure(2);
+obs_location = [0, 0, c];                % obsever location vector
+
+
+h            = c*r_h_c;                  % half root-to-tip amplitude
+lambda       = r_lam_h*h;                % serration wavelength
+
+%% Use the function Pred_Green.m to obtain the code for predicting the PSD of the TE noise under the specified sawtooth profile and flow parameters.
+spec_saw  = Pred_Green(lambda, h*2, 1, M0, rho0, obs_location, freq,c0,n,m,1); % Sawtooth with lambda and h
+spec_base = Pred_Green(0.04,  1e-6, 1, M0, rho0, obs_location, freq,c0,n,m,1); % baseline
+
+
+%% Figure
+% Code for drawing the figure
+Line_color = [248 118 109;  190	190	190]/256; % Line color RGB used in figures
+fig_phi=figure;
 pic_phi=tiledlayout("flow",'TileSpacing','compact','Padding','compact');
-disp('Phi')
-U0 = M0*c0;
-Ustar = 0.03*U0;
-c = 1;
-obs_location = [0, 0, c];
-h = c*r_h_c;
-lambda = r_lam_h*h;
-
-spec_saw = PredBG(lambda, h*2, 1, M0, obs_location, freq,c0,n,m,1);
-spec_base = PredBG(0.04, 1e-6, 1, M0, obs_location, freq,c0,n,m,1);
 
 nexttile(pic_phi);
-semilogx(kc,10*log10(spec_base/4e-10), 'Color',C(1,:),'LineStyle','-','LineWidth',2); hold on;
-semilogx(kc,10*log10(spec_saw/4e-10),'Color',C(2,:),'LineStyle','-','LineWidth',2); hold on;
+semilogx(kc,10*log10(spec_base/4e-10), 'Color',Line_color(1,:),'LineStyle','-','LineWidth',2); hold on;
+semilogx(kc,10*log10(spec_saw/4e-10),'Color',Line_color(2,:),'LineStyle','-','LineWidth',2); hold on;
 ylim([-60 30]);
 yticks([-60 -30 0]);
 xlim([0.1 100]);
