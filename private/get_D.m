@@ -1,4 +1,5 @@
-function result_D = get_D_s(n,j,k_1,k_2,h,M,omega,x_1,x_2,x_3)
+% This subprogram return the key coefficient $D_{nj}$ defined in (2.25) and (A 1) in the paper
+function result_D = get_D(n,j,k_1,k_2,h,M,omega,x_1,x_2,x_3)
 beta = sqrt(1-M^2);
 S_0 = sqrt(x_1.^2+beta^2*(x_2.^2+x_3.^2));
 k = omega;

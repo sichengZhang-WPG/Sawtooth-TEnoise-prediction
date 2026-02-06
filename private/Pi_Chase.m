@@ -5,14 +5,10 @@
 % Version 1st 01/06/2014
 % Version 2nd 01/05/2016 Taking the argument chord c
 
-function res = Pi_Chase(c, omega, M0, k2)
+function res = Pi_Chase(c, omega, M0, k2, rho0, c0)
 
-rho0 = 1.25;
-
-c0 = 343;
-alpha = 0.7;
 U0 = M0 * c0;
-Uc = alpha * U0;
+Uc = 0.7 * U0;
 
 k1 = omega / Uc;
 Ustar = 0.03 * U0;
