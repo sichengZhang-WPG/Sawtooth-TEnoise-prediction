@@ -14,7 +14,7 @@ M_0   = 0.1;     % Mach number of the flow
 % aerofoil parameters
 c       = 1;                        % the chord length
 d       = c*8;                      % span of the aerofoil
-r_lam_h = 8;                        % ratio of lambda to h
+r_lam_h = 6;                        % ratio of lambda to h
 r_h_c   = 0.025;                    % ratio of h to c
 kc      = 10.^linspace(-1,2,100);   % dimensionless frequencies required
 omega   = kc*c_0/c;                 % dimensional angular frequencies
@@ -25,8 +25,9 @@ obs_location = [0, 0, c];           % obsever location vector, [x1, x2, x3]; x1,
 %% Use the function Pred_Green.m to obtain the code for predicting the PSD of the TE noise under the specified sawtooth profile and flow parameters.
 h      = c*r_h_c;                   % half root-to-tip amplitude
 lambda = r_lam_h*h;                 % serration wavelength
-
+tic;
 spec_saw  = Pred_Green(lambda, h*2, c, d, M_0, rho_0, obs_location, freq,c_0,n,m); % Sawtooth with lambda and h
+toc;
 spec_base = Pred_Green(0.04,  1e-6, c, d, M_0, rho_0, obs_location, freq,c_0,n,m); % baseline
 
 %% Figure

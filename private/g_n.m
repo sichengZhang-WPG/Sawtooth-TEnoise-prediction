@@ -1,4 +1,17 @@
 % This subprogram corresponds to $g^{(n,j)}$ in (2.27) in the paper.
+% Input parameters:
+% ----- n = accuracy parameter
+% ----- j = index for different terms in the Green's function
+% ----- k_1 = streamwise wavenumber
+% ----- k_2 = spanwise wavenumber
+% ----- h = half root-to-tip amplitude (non-dimensionalized by serration wavelength)
+% ----- c = chord length (non-dimensionalized by serration wavelength)
+% ----- M = Mach number
+% ----- omega = non-dimensional angular frequency
+% ----- x_1 = observer location in streamwise direction (non-dimensionalized)
+% ----- x_2 = observer location in spanwise direction (non-dimensionalized)
+% ----- x_3 = observer location perpendicular to airfoil (non-dimensionalized)
+
 function result = g_n(n,j,k_1,k_2,h,c,M,omega,x_1,x_2,x_3)
 sigma_nj = get_sigma(n,j,k_1,k_2,h,M,omega,x_1,x_2,x_3);
 Omega_n = get_Omega(n,j,k_1,k_2,h,M,omega,x_1,x_2,x_3);

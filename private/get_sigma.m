@@ -1,4 +1,15 @@
 % This subprogram return the key coefficient $\sigma_{nj}$ defined in (2.25) and (A 1) in the paper
+% Input parameters:
+% ----- n = accuracy parameter
+% ----- j = index for different terms in the Green's function
+% ----- k_1 = streamwise wavenumber
+% ----- h = half root-to-tip amplitude (non-dimensionalized by serration wavelength)
+% ----- M = Mach number
+% ----- omega = non-dimensional angular frequency
+% ----- x_1 = observer location in streamwise direction (non-dimensionalized)
+% ----- x_2 = observer location in spanwise direction (non-dimensionalized)
+% ----- x_3 = observer location perpendicular to airfoil (non-dimensionalized)
+
 function result_sigma = get_sigma(n,j,k_1,~,h,M,omega,x_1,x_2,x_3)
 beta = sqrt(1-M^2);
 S_0 = sqrt(x_1.^2+beta^2*(x_2.^2+x_3.^2));

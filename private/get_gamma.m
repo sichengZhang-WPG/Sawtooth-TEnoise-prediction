@@ -1,4 +1,14 @@
-% This subprogram return the key coefficient $\gamma_{nj}$ defined in (2.25) and (A 1) in the paper
+% This subprogram return the key coefficient $\gamma_{nj}$ defined in (2.25) and (A 1) in the paper.
+% Input parameters:
+% ----- n = accuracy parameter
+% ----- j = index for different terms in the Green's function
+% ----- k_1 = streamwise wavenumber
+% ----- k_2 = spanwise wavenumber
+% ----- h = half root-to-tip amplitude (non-dimensionalized by serration wavelength)
+% ----- M = Mach number
+% ----- omega = non-dimensional angular frequency
+
+
 function result_gamma = get_gamma(n,j,k_1,k_2,h,M,omega,~,~,~)
 beta = sqrt(1-M^2);
 k = omega;

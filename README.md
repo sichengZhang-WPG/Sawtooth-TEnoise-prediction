@@ -32,7 +32,7 @@ The program outputs include:
 The code implements the following models and functions:
 * **Input Spectrum:** Chase's model is used for the input TBL spectrum, as defined in the function `Pi_Chase.m`.
 * **Sub-functions:**
-    * `g_n` corresponds to $g_n^{nj}$ in the paper.
+    * `g_n`  corresponds to $g^{(nj)}$ in the paper.
     * `g_01` corresponds to $g_0^{(01)}$.
     * `g_02` corresponds to $g_0^{(02)}$.
     * `g_03` corresponds to $g_0^{(03)}$.

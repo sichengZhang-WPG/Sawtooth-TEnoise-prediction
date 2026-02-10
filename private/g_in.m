@@ -1,4 +1,16 @@
 % This subprogram return the contribution of the incident wave
+% Input parameters:
+% ----- n = accuracy parameter
+% ----- j = index for different terms in the Green's function
+% ----- k_1 = streamwise wavenumber
+% ----- k_2 = spanwise wavenumber
+% ----- h = half root-to-tip amplitude (non-dimensionalized by serration wavelength)
+% ----- M = Mach number
+% ----- omega = non-dimensional angular frequency
+% ----- x_1 = observer location in streamwise direction (non-dimensionalized)
+% ----- x_2 = observer location in spanwise direction (non-dimensionalized)
+% ----- x_3 = observer location perpendicular to airfoil (non-dimensionalized)
+
 function result = g_in(n,j,k_1,k_2,h,~,M,omega,x_1,x_2,x_3)
 epsilon = 0.00001; % A smaller imaginary part used to represent the trend of far-field attenuation
 
