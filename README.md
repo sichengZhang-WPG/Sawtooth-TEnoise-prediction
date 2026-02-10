@@ -17,7 +17,13 @@ Where:
 * $h$ is the half root-to-tip amplitude.
 * $\lambda$ is the serration wavelength.
 * $F(\eta)$ is the periodic shape function of the serration with a period of 1.
-
+$$
+F(y_2)=
+\begin{cases}
+4y_2, & -\frac{1}{4}<y_2<\frac{1}{4}, \\
+-4y_2+2, & \frac{1}{4}<y_2<\frac{3}{4}.
+\end{cases}
+$$
 > **Note:** This code only works for **sawtooth serrations**. All notations used are consistent with the symbols used in the associated research paper.
 
 ---
