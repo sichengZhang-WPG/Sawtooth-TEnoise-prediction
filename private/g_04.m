@@ -21,6 +21,7 @@ D_04    = get_D(n,4,k_1,k_2,h,M,omega,x_1,x_2,x_3);
 coef1   = D_04.*2./Omega_0.*sin(Omega_0./2).*exp(-1i.*Omega_0./4).*1i./sigma_0;
 
 % calculate the value of each term separately in (A14)
+result_tmp = zeros([11 size(coef1)]);
 result_tmp(1,:,:,:,:) = coef1.* sigma_0./(2.*mysqrt(gamma_0).*mysqrt((sigma_0+gamma_0)).^3) .* (exp(-1i.*sigma_0.*h).*EE((sigma_0+gamma_0).*(c+h)) - exp(1i.*sigma_0.*h).*EE((sigma_0+gamma_0).*(c-h)));
 result_tmp(2,:,:,:,:) = coef1.* mysqrt(gamma_0)./mysqrt((sigma_0+gamma_0)) .* (exp(-1i.*sigma_0.*h).*exp(1i.*(sigma_0+gamma_0).*(c+h)).*(c+h)./mysqrt(2.*pi.*(sigma_0+gamma_0).*(c+h)) - exp(1i.*sigma_0.*h).*exp(1i.*(sigma_0+gamma_0).*(c-h)).*(c-h)./mysqrt(2.*pi.*(sigma_0+gamma_0).*(c-h)));
 result_tmp(3,:,:,:,:) = -coef1.* exp(1i.*sigma_0.*c).*((c+h).*exp(1i.*gamma_0.*(c+h))./mysqrt(2.*pi.*gamma_0.*(c+h))-(c-h).*exp(1i.*gamma_0.*(c-h))./mysqrt(2.*pi.*gamma_0.*(c-h)));

@@ -20,6 +20,7 @@ D_nj = get_D(n,j,k_1,k_2,h,M,omega,x_1,x_2,x_3);
 coef1 = D_nj*2./Omega_n.*sin(Omega_n/2).*exp(-1i*Omega_n/4)*1i./sigma_nj;
 
 % calculate the value of each term separately in (2.27)
+result_tmp = zeros([5 size(coef1)]);
 result_tmp(1,:,:,:,:) = coef1.*mysqrt(gamma_nj)./mysqrt((sigma_nj+gamma_nj)) .* ...
     (exp(-1i*sigma_nj*h).*EE((sigma_nj+gamma_nj)*(c+h)) - exp(1i*sigma_nj*h).*EE((sigma_nj+gamma_nj)*(c-h)));
 

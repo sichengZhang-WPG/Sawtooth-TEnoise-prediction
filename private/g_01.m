@@ -21,6 +21,7 @@ D_01    = get_D(n,1,k_1,k_2,h,M,omega,x_1,x_2,x_3);
 coef1   = D_01*2./Omega_0.*sin(Omega_0/2).*exp(-1i*Omega_0/4)*1i./sigma_0;
 
 % calculate the value of each term separately in (A11)
+result_tmp = zeros([6 size(coef1)]);
 result_tmp(1,:,:,:,:) = coef1.*mysqrt(gamma_0)./mysqrt((sigma_0+gamma_0)).* ...
     (exp(-1i*sigma_0*h).*EE((sigma_0+gamma_0)*(c+h)) - exp(1i*sigma_0*h).*EE((sigma_0+gamma_0)*(c-h)));
 
