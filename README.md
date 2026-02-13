@@ -3,12 +3,12 @@
 ## 1. General Information
 * **Author:** SichengZ
 * **Date:** December 28, 2025
-* **Entry Point:** The main entry point for the code is `Pred_Green.m`.
+* **Entry Point:** The main entry point for the code is `Pred_PSD.m`.
 
 ---
 
 ## 2. Project Description
-This code is designed to calculate the turbulent boundary layer trailing-edge (TE) noise. The calculation supports both straight and serrated trailing edges.
+This code is designed to calculate the turbulent boundary layer trailing-edge (TE) noise. The calculation supports both straight and sawtooth-serrated trailing edges.
 
 ### **Serration Geometry**
 The serration is described by the function:
@@ -16,7 +16,7 @@ $$x=hF(y/\lambda)$$
 Where:
 * $h$ is the half root-to-tip amplitude.
 * $\lambda$ is the serration wavelength.
-* $F(\eta)$ is the periodic shape function of the serration with a period of 1.
+* $F(\eta)$ is the periodic shape function of the sawtooth-serration with a period of 1.
 $$
 F(y_2)=
 \begin{cases}
